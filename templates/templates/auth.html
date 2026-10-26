@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ 'Register' if mode == 'register' else 'Login' }} | Career Mentor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="auth-page">
+    <main class="auth-card">
+        <a class="brand" href="/">Career<span>Mentor</span></a>
+
+        {% if mode == 'register' %}
+            <h1>Create Account</h1>
+            <p>Start your career preparation journey.</p>
+            <form method="POST" action="{{ url_for('register') }}">
+                <label for="name">Full Name</label>
+                <input id="name" name="name" type="text" required>
+
+                <label for="email">Email Address</label>
+                <input id="email" name="email" type="email" required>
+
+                <label for="password">Password (minimum 8 characters)</label>
+                <input id="password" name="password" type="password" minlength="8" required>
+
+                <button type="submit">Create Account</button>
+            </form>
+            <p>Already registered? <a href="{{ url_for('login') }}">Login</a></p>
+        {% else %}
+            <h1>Welcome Back!</h1>
+            <p>Login to continue your placement preparation.</p>
+            <form method="POST" action="{{ url_for('login') }}">
+                <label for="email">Email Address</label>
+                <input id="email" name="email" type="email" required>
+
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" required>
+
+                <button type="submit">Login</button>
+            </form>
+            <p>New here? <a href="{{ url_for('register') }}">Create an account</a></p>
+        {% endif %}
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-message">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+    </main>
+</body>
+</html>
