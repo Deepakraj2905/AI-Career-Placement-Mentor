@@ -1,0 +1,268 @@
+:root {
+    --primary: #4f46e5;
+    --dark: #172033;
+    --muted: #64748b;
+    --background: #f4f7fc;
+    --white: #ffffff;
+    --border: #e2e8f0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: var(--dark);
+    background: var(--background);
+    line-height: 1.6;
+}
+
+.navbar {
+    background: var(--white);
+    padding: 18px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    font-size: 23px;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--dark);
+}
+
+.brand span {
+    color: var(--primary);
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px 18px;
+}
+
+.hero {
+    padding: 40px;
+    border-radius: 18px;
+    background: linear-gradient(120deg, #e0e7ff, #ffffff);
+    border: 1px solid #dbe3ff;
+}
+
+.hero h1 {
+    font-size: clamp(28px, 5vw, 42px);
+    margin: 8px 0;
+}
+
+.hero p {
+    color: var(--muted);
+}
+
+.eyebrow {
+    color: var(--primary) !important;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+
+.section {
+    margin-top: 25px;
+    scroll-margin-top: 20px;
+}
+
+.section h2 {
+    margin-top: 0;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 4px 15px rgba(20, 35, 70, 0.04);
+}
+
+.cards .card p {
+    color: var(--muted);
+    margin: 0;
+}
+
+.cards .card h3 {
+    color: var(--primary);
+    font-size: 27px;
+    margin: 8px 0 0;
+}
+
+input,
+textarea,
+select {
+    display: block;
+    width: 100%;
+    margin: 7px 0 16px;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: white;
+    color: var(--dark);
+    font: inherit;
+}
+
+textarea {
+    min-height: 95px;
+    resize: vertical;
+}
+
+label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #3730a3;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.result,
+.message,
+.flash-message {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    overflow-wrap: anywhere;
+}
+
+.result {
+    background: #f1f5ff;
+}
+
+.message {
+    color: var(--primary);
+}
+
+.result:empty,
+.message:empty {
+    display: none;
+}
+
+.result li {
+    margin-bottom: 8px;
+}
+
+.auth-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 430px;
+    padding: 30px;
+    border-radius: 16px;
+    background: white;
+    border: 1px solid var(--border);
+}
+
+.auth-card h1 {
+    margin-bottom: 5px;
+}
+
+.auth-card p {
+    color: var(--muted);
+}
+
+.auth-card form {
+    margin-top: 22px;
+}
+
+.auth-card button {
+    width: 100%;
+}
+
+.auth-card a:not(.brand) {
+    color: var(--primary);
+}
+
+.flash-message {
+    background: #fff1f2;
+    color: #be123c;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 10px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+@media (max-width: 800px) {
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .navbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 25px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+}
