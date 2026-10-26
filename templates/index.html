@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Career & Placement Mentor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="/">Career<span>Mentor</span></a>
+    <nav>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#profile">My Profile</a>
+      <a href="#resume">Resume</a>
+      <a href="#careers">Career Match</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#interview">Mock Interview</a>
+      <a href="/logout">Logout</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">YOUR FUTURE STARTS HERE</p>
+      <h1>Welcome, {{ name }}!</h1>
+      <p>Your AI Career and Placement Mentor helps you prepare for your career, improve your resume and practise for interviews.</p>
+    </section>
+
+    <section id="dashboard" class="section">
+      <h2>Your Dashboard</h2>
+      <div class="cards">
+        <article class="card"><p>Career Readiness</p><h3 id="readiness">--</h3></article>
+        <article class="card"><p>Resume Score</p><h3 id="resume-score">--</h3></article>
+        <article class="card"><p>Skills Identified</p><h3 id="skill-count">--</h3></article>
+        <article class="card"><p>Practice Sessions</p><h3 id="practice-count">--</h3></article>
+      </div>
+      <p id="dashboard-message" class="message"></p>
+    </section>
+
+    <section id="profile" class="section card">
+      <h2>My Career Profile</h2>
+      <label for="education">Education</label>
+      <input id="education" placeholder="e.g. B.E. Computer Science">
+      <label for="skills">Technical skills</label>
+      <textarea id="skills" placeholder="Java, SQL, HTML, CSS"></textarea>
+      <label for="interests">Career interests</label>
+      <input id="interests" placeholder="e.g. Java Developer, Web Development">
+      <label for="target-role">Target role</label>
+      <select id="target-role">
+        <option>Software Engineer</option>
+        <option>Java Developer</option>
+        <option>Web Developer</option>
+        <option>Backend Developer</option>
+        <option>Python Developer</option>
+        <option>AI/ML Engineer</option>
+        <option>Data Analyst</option>
+      </select>
+      <button id="save-profile" type="button">Save Profile</button>
+      <p id="profile-message" class="message"></p>
+    </section>
+
+    <section id="resume" class="section card">
+      <h2>Resume Analysis</h2>
+      <p>Upload a PDF, DOCX or TXT resume to identify skills and get suggestions.</p>
+      <input id="resume-file" type="file" accept=".pdf,.docx,.txt">
+      <button id="analyze-resume" type="button">Analyze Resume</button>
+      <div id="resume-results" aria-live="polite"></div>
+    </section>
+
+    <section id="careers" class="section card">
+      <h2>Career Recommendations</h2>
+      <p>Save your skills in the profile first, then find matching career roles.</p>
+      <button id="find-careers" type="button">Find Matching Careers</button>
+      <div id="career-results"></div>
+    </section>
+
+    <section id="roadmap" class="section card">
+      <h2>Personal Learning Roadmap</h2>
+      <label for="roadmap-role">Choose a target role</label>
+      <select id="roadmap-role">
+        <option>Software Engineer</option>
+        <option>Java Developer</option>
+        <option>Web Developer</option>
+        <option>Backend Developer</option>
+        <option>Python Developer</option>
+        <option>AI/ML Engineer</option>
+        <option>Data Analyst</option>
+      </select>
+      <button id="create-roadmap" type="button">Create Roadmap</button>
+      <ol id="roadmap-results"></ol>
+    </section>
+
+    <section id="chat" class="section card">
+      <h2>AI Career Mentor</h2>
+      <p>Ask questions about careers, resumes, skills or placement preparation.</p>
+      <textarea id="chat-message" placeholder="Type your career question..."></textarea>
+      <button id="send-chat" type="button">Ask Mentor</button>
+      <div id="chat-results" class="result" aria-live="polite"></div>
+    </section>
+
+    <section id="interview" class="section card">
+      <h2>Mock Interview Practice</h2>
+      <label for="interview-role">Target role</label>
+      <select id="interview-role">
+        <option>Software Engineer</option>
+        <option>Java Developer</option>
+        <option>Web Developer</option>
+        <option>Backend Developer</option>
+        <option>Python Developer</option>
+        <option>AI/ML Engineer</option>
+        <option>Data Analyst</option>
+      </select>
+      <label for="interview-question">Interview question</label>
+      <textarea id="interview-question" placeholder="Enter the interview question"></textarea>
+      <label for="interview-answer">Your answer</label>
+      <textarea id="interview-answer" placeholder="Write your answer here"></textarea>
+      <button id="submit-interview" type="button">Get Feedback</button>
+      <div id="interview-results" class="result" aria-live="polite"></div>
+    </section>
+
+    <footer>AI Career & Placement Mentor · Prepare, Practise, Progress</footer>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
